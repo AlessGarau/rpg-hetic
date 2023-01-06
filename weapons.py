@@ -30,6 +30,9 @@ class Effect:
         if self.name == 'CRT':
             self.damage_tick = 8
             self.probability = .4
+        if self.name == "LIF":
+            self.damage_tick = 5
+            self.probability = 1
         
     def get_name(self):
         return self.name
@@ -42,7 +45,7 @@ class Effect:
             
             return "", 0
 
-#pour mettre les sprites suffit de rajouter  "graphics": /le_path/ 
+#pour mettre les sprites suffit de rajouter le chemin du sprite à la place de None à 'sprite'
 weapon_data = {
     'Clé à molette': {'damage': 5, 'durability': 12, 'effect': None, 'sprite': None},
     'Couteau de combat': {'damage': 5, 'durability': 12, 'effect': Effect("SAI"), 'sprite': None},
