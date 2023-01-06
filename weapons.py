@@ -34,13 +34,14 @@ class Effect:
     def get_name(self):
         return self.name
 
-    def use_effect(self, monster):
+    def use_effect(self, target): #Comme ça c'est utilisable pour les monstres aussi Aless
         if randint(0, 10)/10 < self.probability:
-            monster.status == self.name
+            target.status == self.name
             return f"Additional damage dealt due to {self.name}", self.damage_tick
         else:
             
             return "", 0
+
 #pour mettre les sprites suffit de rajouter  "graphics": /le_path/ 
 weapon_data = {
     'Clé à molette': {'damage': 5, 'durability': 12, 'effect': None, 'sprite': None},
