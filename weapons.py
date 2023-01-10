@@ -1,20 +1,10 @@
 import arcade
+from player import *
 from random import randint
-
-"""
-quand attaque =>
-		weapon_damage = weapon_data[self.weapon]['damage']
-        if weapon_data[self.weapon]['effect']:
-            annonce, effect_damage = weapon_data[self.weapon]['effect'].use_effect
-
-        total_damage = weapon_damage + effect_damage
-"""
 
 class Effect:
     def __init__(self, name):
         self.name = name
-
-
         if self.name == 'BRU':
             self.damage_tick = 5
             self.probability = .4
@@ -29,47 +19,38 @@ class Effect:
             self.probability = .1
         if self.name == 'CRT':
             self.damage_tick = 8
-            self.probability = .4
+            self.probability = .4   
         if self.name == "LIF":
             self.damage_tick = 5
             self.probability = 1
         
+
     def get_name(self):
         return self.name
 
-    def use_effect(self, target): #Comme ça c'est utilisable pour les monstres aussi Aless
+    def use_effect(self, target): 
         if randint(0, 10)/10 < self.probability:
-            target.status == self.name
+            target.status = self.name
             return f"Additional damage dealt due to {self.name}", self.damage_tick
         else:
-            
             return "", 0
 
-#pour mettre les sprites suffit de rajouter le chemin du sprite à la place de None à 'sprite'
+weapon_sprite_path = f'./weapons_sprite/{Player.get_current_weapon()}.png'
+
 weapon_data = {
-    'Clé à molette': {'damage': 5, 'durability': 12, 'effect': None, 'sprite': None},
-    'Couteau de combat': {'damage': 5, 'durability': 12, 'effect': Effect("SAI"), 'sprite': None},
-    'Tuyau': {'damage': 5, 'durability': 12, 'effect': None, 'sprite': None},
-    'Pistolet à cloue': {'damage': 5, 'durability': 12, 'effect': Effect("PSN"), 'sprite': None},
-    
-    'Masse': {'damage': 5, 'durability': 10, 'effect': Effect("PEU"), 'sprite': None},
-    'Exo Gant': {'damage': 5, 'durability': 10, 'effect': None, 'sprite': None},
-    'Blaster': {'damage': 5, 'durability': 10, 'effect': Effect('BRU'), 'sprite': None},
+    'Punch': {'damage': 0, 'durability': 0, 'effect': None, 'sprite': None, 'status': 'early'},
+    'Clé à molette': {'damage': 5, 'durability': 12, 'effect': None, 'sprite': None, 'status': 'early'},
+    'Couteau de combat': {'damage': 5, 'durability': 12, 'effect': Effect("SAI"), 'sprite': None, 'status': 'early'},
+    'Tuyau': {'damage': 5, 'durability': 12, 'effect': None, 'sprite': None, 'status': 'early'},
+    'Pistolet à cloue': {'damage': 5, 'durability': 12, 'effect': Effect("PSN"), 'sprite': None, 'status': 'early'},
 
-    'Fusil à pompe': {'damage': 5, 'durability': 8, 'effect': None, 'sprite': None},
-    'Lance-Flamme': {'damage': 5, 'durability': 8, 'effect': Effect('BRU'), 'sprite': None},
+    'Masse': {'damage': 5, 'durability': 10, 'effect': Effect("PEU"), 'sprite': None, 'status': 'mid'},
+    'Exo Gant': {'damage': 5, 'durability': 10, 'effect': None, 'sprite': None, 'status': 'mid'},
+    'Blaster': {'damage': 5, 'durability': 10, 'effect': Effect('BRU'), 'sprite': None, 'status': 'mid'},
 
+    'Fusil à pompe': {'damage': 5, 'durability': 8, 'effect': None, 'sprite': None, 'status': 'late'},
+    'Lance-Flamme': {'damage': 5, 'durability': 8, 'effect': Effect('BRU'), 'sprite': None, 'status': 'late'},
 }
-
-
-#dans player il y aura donc ça pour les armes
-class Player:
-    def __init__(self) -> None:
-
-
-        # en updatant weapon_key, on switch d'arme + créer un ramassage d'item i guess, pour l'instant ici toutes les armes sont availables
-        self.weapon_key = 0
-        self.weapon = list(weapon_data.keys())[self.weapon_key]
 
 """
     avec une condition pour switch d'arme ca donne ça (lors de l'input de touche E par exemple)
@@ -81,4 +62,3 @@ class Player:
 					
 				self.weapon = list(weapon_data.keys())[self.weapon_index]
 """
-    
