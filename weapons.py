@@ -23,7 +23,6 @@ class Effect:
         if self.name == "LIF":
             self.damage_tick = 5
             self.probability = 1
-        
 
     def get_name(self):
         return self.name
@@ -38,18 +37,18 @@ class Effect:
 weapon_sprite_path = f'./weapons_sprite/{Player.get_current_weapon()}.png'
 
 weapon_data = {
-    'Punch': {'damage': 0, 'durability': 0, 'effect': None, 'sprite': None, 'status': 'early'},
-    'Clé à molette': {'damage': 5, 'durability': 12, 'effect': None, 'sprite': None, 'status': 'early'},
-    'Couteau de combat': {'damage': 5, 'durability': 12, 'effect': Effect("SAI"), 'sprite': None, 'status': 'early'},
-    'Tuyau': {'damage': 5, 'durability': 12, 'effect': None, 'sprite': None, 'status': 'early'},
-    'Pistolet à cloue': {'damage': 5, 'durability': 12, 'effect': Effect("PSN"), 'sprite': None, 'status': 'early'},
+    'Punch': {'damage': 0, 'durability': 0, 'effect': None, 'sprite': "./weapons_sprite/Punch.png", 'status': 'early'},
+    'Clé à molette': {'damage': 5, 'durability': 12, 'effect': None, 'sprite': "./weapons_sprite/'Clé à molette'.png", 'status': 'early'},
+    'Couteau de combat': {'damage': 5, 'durability': 12, 'effect': Effect("SAI"), 'sprite': "./weapons_sprite/'Couteau de combat'.png", 'status': 'early'},
+    'Tuyau': {'damage': 5, 'durability': 12, 'effect': None, 'sprite': "./weapons_sprite/Tuyau.png", 'status': 'early'},
+    'Pistolet à cloue': {'damage': 5, 'durability': 12, 'effect': Effect("PSN"), 'sprite': "./weapons_sprite/'Pistolet à cloue'.png", 'status': 'early'},
 
-    'Masse': {'damage': 5, 'durability': 10, 'effect': Effect("PEU"), 'sprite': None, 'status': 'mid'},
-    'Exo Gant': {'damage': 5, 'durability': 10, 'effect': None, 'sprite': None, 'status': 'mid'},
-    'Blaster': {'damage': 5, 'durability': 10, 'effect': Effect('BRU'), 'sprite': None, 'status': 'mid'},
+    'Masse': {'damage': 5, 'durability': 10, 'effect': Effect("PEU"), 'sprite': "./weapons_sprite/Masse.png", 'status': 'mid'},
+    'Exo Gant': {'damage': 5, 'durability': 10, 'effect': None, 'sprite': "./weapons_sprite/'Exo Gant'.png", 'status': 'mid'},
+    'Blaster': {'damage': 5, 'durability': 10, 'effect': Effect('BRU'), 'sprite': "./weapons_sprite/Blaster.png", 'status': 'mid'},
 
-    'Fusil à pompe': {'damage': 5, 'durability': 8, 'effect': None, 'sprite': None, 'status': 'late'},
-    'Lance-Flamme': {'damage': 5, 'durability': 8, 'effect': Effect('BRU'), 'sprite': None, 'status': 'late'},
+    'Fusil à pompe': {'damage': 5, 'durability': 8, 'effect': None, 'sprite': "./weapons_sprite/'Fusil à pompe'.png", 'status': 'late'},
+    'Lance-Flamme': {'damage': 5, 'durability': 8, 'effect': Effect('BRU'), 'sprite': "./weapons_sprite/'Lance-Flamme'.png", 'status': 'late'},
 }
 
 """
