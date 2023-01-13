@@ -1,4 +1,4 @@
-from weapons import weapon_data, Effect
+from weapons import weapon_data
 
 class Player:
     def __init__(self, name,level):
@@ -9,10 +9,10 @@ class Player:
         self.defense = level * 2 
         self.statut = None
         self.inventory = {
-            "weapons" : [],
-            "items" : []
+            "weapons" : ['Blaster', 'Punch'],
+            "consommables" : ['Orangina', 'Spray de soin']
         }
-        self.current_weapon = weapon_data['punch']
+        # self.current_weapon = weapon_data['punch']
         self.xp_to_next_lvl = 5
         self.current_xp = 0
 
@@ -49,8 +49,7 @@ class Player:
                 for slot in value:
                     print(slot + "-" + key)
 
-test = Player('name',1)
-
+player = Player('Yugo', 9)
 """J'ai upgrade la fonction d'attaque avec mon système d'arme, 
 j'ai setup l'inventaire d'arme et de consommable 
 (et du coup j'ai modifié l'inventaire pour que tout fonctionne)"""
