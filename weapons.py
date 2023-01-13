@@ -1,5 +1,4 @@
 import arcade
-from player import *
 from random import randint
 
 class Effect:
@@ -34,21 +33,24 @@ class Effect:
         else:
             return "", 0
 
-#weapon_sprite_path = f'./weapons_sprite/{Player.get_current_weapon()}.png'
-
 weapon_data = {
-    'Punch': {'damage': 0, 'durability': 0, 'effect': None, 'sprite': "./weapons_sprite/Punch.png", 'status': 'early'},
-    'Clé à molette': {'damage': 5, 'durability': 12, 'effect': None, 'sprite': "./weapons_sprite/'Clé à molette'.png", 'status': 'early'},
-    'Couteau de combat': {'damage': 5, 'durability': 12, 'effect': Effect("SAI"), 'sprite': "./weapons_sprite/'Couteau de combat'.png", 'status': 'early'},
-    'Tuyau': {'damage': 5, 'durability': 12, 'effect': None, 'sprite': "./weapons_sprite/Tuyau.png", 'status': 'early'},
-    'Pistolet à cloue': {'damage': 5, 'durability': 12, 'effect': Effect("PSN"), 'sprite': "./weapons_sprite/'Pistolet à cloue'.png", 'status': 'early'},
+    'early': {
+        'Punch': {'damage': 0, 'durability': 0, 'effect': None, 'sprite': "./weapons_sprite/Punch.png"},
+        'Clé à molette': {'damage': 5, 'durability': 12, 'effect': None, 'sprite': "./weapons_sprite/'Clé à molette'.png"},
+        'Couteau de combat': {'damage': 5, 'durability': 12, 'effect': Effect("SAI"), 'sprite': "./weapons_sprite/'Couteau de combat'.png"},
+        'Tuyau': {'damage': 5, 'durability': 12, 'effect': None, 'sprite': "./weapons_sprite/Tuyau.png"},
+        'Pistolet à cloue': {'damage': 5, 'durability': 12, 'effect': Effect("PSN"), 'sprite': "./weapons_sprite/'Pistolet à cloue'.png"},
+    },
+    'mid': {
+        'Masse': {'damage': 5, 'durability': 10, 'effect': Effect("PEU"), 'sprite': "./weapons_sprite/Masse.png"},
+        'Exo Gant': {'damage': 5, 'durability': 10, 'effect': None, 'sprite': "./weapons_sprite/'Exo Gant'.png"},
+        'Blaster': {'damage': 5, 'durability': 10, 'effect': Effect('BRU'), 'sprite': "Interface graphique/rpg-hetic-main/weapons_sprites/Blaster.png"},
+    },
+    'late': {
+        'Fusil à pompe': {'damage': 5, 'durability': 8, 'effect': None, 'sprite': "./weapons_sprite/'Fusil à pompe'.png"},
+        'Lance-Flamme': {'damage': 5, 'durability': 8, 'effect': Effect('BRU'), 'sprite': "./weapons_sprite/'Lance-Flamme'.png"},
+    }
 
-    'Masse': {'damage': 5, 'durability': 10, 'effect': Effect("PEU"), 'sprite': "./weapons_sprite/Masse.png", 'status': 'mid'},
-    'Exo Gant': {'damage': 5, 'durability': 10, 'effect': None, 'sprite': "./weapons_sprite/'Exo Gant'.png", 'status': 'mid'},
-    'Blaster': {'damage': 5, 'durability': 10, 'effect': Effect('BRU'), 'sprite': "Interface graphique/rpg-hetic-main/weapons_sprites/Blaster.png", 'status': 'mid'},
-
-    'Fusil à pompe': {'damage': 5, 'durability': 8, 'effect': None, 'sprite': "./weapons_sprite/'Fusil à pompe'.png", 'status': 'late'},
-    'Lance-Flamme': {'damage': 5, 'durability': 8, 'effect': Effect('BRU'), 'sprite': "./weapons_sprite/'Lance-Flamme'.png", 'status': 'late'},
 }
 
 """

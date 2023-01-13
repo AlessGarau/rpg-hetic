@@ -22,7 +22,7 @@ class Consommables:
         print(f"Vous venez d'utiliser {self.name}")
     
 
-consammables_data = {
+consommables_data = {
     "early": {
         'Kit de secours': Consommables('Kit de secours (+HP)', 5),
         'Spray anti-BRU': Consommables('Spray anti-BRU (-BRU)', 0, Effect('BRU')),

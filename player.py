@@ -1,4 +1,5 @@
 from weapons import weapon_data
+from consommables import consommables_data
 
 class Player:
     def __init__(self, name,level):
@@ -7,11 +8,13 @@ class Player:
         self.hp = level * 5
         self.ad = level * 3
         self.defense = level * 2 
-        self.statut = None
+        self.status = None
+        self.game_status = "early"
+
         self.inventory = {
-            "weapons" : ['Blaster', 'Punch'],
-            "consommables" : ['Orangina', 'Spray de soin']
-        }
+                "weapons" : [[weapon, data] for weapon, data in weapon_data[self.game_status].items()],
+                "consommables" : [[items, data] for items, data in consommables_data[self.game_status].items()]
+            }
         # self.current_weapon = weapon_data['punch']
         self.xp_to_next_lvl = 5
         self.current_xp = 0
@@ -42,14 +45,12 @@ class Player:
     
     def show_inventory(self):
         print(f"Inventaire de {self.name}:")
-        for key, value in self.inventory:
-            if not value:
-                print(f"VIDE")
-            else:
-                for slot in value:
-                    print(slot + "-" + key)
+        print([weapon[0] for weapon in self.inventory["weapons"]])
+        print([conso[0] for conso in self.inventory["consommables"]])
+                
 
 player = Player('Yugo', 9)
+player.show_inventory()
 """J'ai upgrade la fonction d'attaque avec mon système d'arme, 
 j'ai setup l'inventaire d'arme et de consommable 
 (et du coup j'ai modifié l'inventaire pour que tout fonctionne)"""
